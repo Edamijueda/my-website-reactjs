@@ -4,9 +4,9 @@ title: 'Dry-Beans Data Analysis'
 github: 'https://github.com/Edamijueda/Dry-beans-data-analysis'
 external: 'https://github.com/Edamijueda/Dry-beans-data-analysis'
 tech:
-  - Sk-learn
+  - SkLearn
   - Python
-  - Anaconda
+  - Conda
   - KNN-SVM
 company: ''
 showInProjects: true
