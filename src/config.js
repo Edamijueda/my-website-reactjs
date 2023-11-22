@@ -1,27 +1,31 @@
 module.exports = {
-  email: 'brittany.chiang@gmail.com',
+  email: 'tobbyzomo221@gmail.com', //brittany.chiang@gmail.com
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/bchiang7',
+      url: 'https://github.com/Edamijueda', //https://github.com/bchiang7
     },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/bchiang7',
-    },
+    // {
+    //   name: 'Instagram',
+    //   url: 'https://www.instagram.com/bchiang7',
+    // },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/bchiang7',
+      url: 'https://twitter.com/OmoruboreO', // https://twitter.com/bchiang7
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
+      url: 'https://www.linkedin.com/in/oluwatobi-omorubore/', // https://www.linkedin.com/in/bchiang7
     },
     {
-      name: 'Codepen',
-      url: 'https://codepen.io/bchiang7',
+      name: 'Medium',
+      url: 'https://medium.com/@oluwatobi_omorubore', // https://www.linkedin.com/in/bchiang7
     },
+    // {
+    //   name: 'Codepen',
+    //   url: 'https://codepen.io/bchiang7',
+    // },
   ],
 
   navLinks: [
