@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Tobi Omorubore',
     description:
-      'A software engineer; I enjoy creating things that live on the internet. High perfomant mobile and web apps',
+      'I\'m software engineer; I enjoy creating things that live on the internet. Build high perfomant mobile and web apps.',
     siteUrl: 'https://tobi-omorubore.dev', // No trailing slash allowed!
     image: '/logo.png', //'/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@OmoruboreO',

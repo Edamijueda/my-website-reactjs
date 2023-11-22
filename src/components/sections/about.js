@@ -128,11 +128,11 @@ const About = () => {
   //const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
   const skills = [
     'Flutter',
-    'Android/ios',
-    'Dart',
+    'HTML/CSS',
+    'Java',
     'Python',
     'SQL/No-SQL',
-    'Java',
+    'NodeJS',
     'Reactjs',
     'Kotlin',
   ];
@@ -146,7 +146,7 @@ const About = () => {
           <div>
             <p>
               Hello! My name is Tobi and I enjoy creating things that live on the internet. My
-              interest is in mobile app and web development!
+              interest is in building high perfomant mobile and web apps!
             </p>
 
             <p>
