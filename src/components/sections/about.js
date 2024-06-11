@@ -21,7 +21,7 @@ const StyledAboutSection = styled.section`
 const StyledText = styled.div`
   ul.skills-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
+    grid-template-columns: repeat(3, minmax(140px, 200px));
     grid-gap: 0 10px;
     padding: 0;
     margin: 20px 0 0 0;
@@ -128,13 +128,16 @@ const About = () => {
   //const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
   const skills = [
     'Flutter',
-    'HTML/CSS',
     'Java',
+    'Spring-boot',
+    'HTML/CSS/JS',
     'Python',
     'SQL/No-SQL',
-    'NodeJS',
-    'Reactjs',
+    'Node.js',
+    'React.js',
+    'Vue.js',
     'Kotlin',
+    'PHP laravel',
   ];
 
   return (
@@ -152,16 +155,14 @@ const About = () => {
             <p>
               Fast-forward to today, and I’ve had the privilege of building mobile apps for veriety
               of clients on <a href="https://fiverr.com/">Fiverr</a> and{' '}
-              <a href="https://www.upwork.com/">Upwork</a>. Delivered custom softwares tailored
-              business needs at <a href="https://wazobia.tech/">Zinox technology</a>. My main focus
-              these days is working with the team at{' '}
-              <a href="https://www.collaction.org/">Collaction</a> in building an{' '}
-              <a href="https://apps.apple.com/us/app/collaction-power-to-the-crowd/id1597643827">
-                app
-              </a>{' '}
-              that connect people to solve collective action problems.
+              <a href="https://www.upwork.com/">Upwork</a>. Delivered custom softwares tailored to
+              business needs during my time with{' '}
+              <a href="https://wazobia.tech/">Zinox technology</a> and{' '}
+              <a href="https://www.collaction.org/">Collaction</a>. My main focus these days is
+              working with the team at <a href="https://datafidelity.ng/">DataFidelity</a>, building
+              POSTCODE-NG.
             </p>
-            <p>Here are a few technologies I’ve been working with recently:</p>
+            <p>Here are a few technologies I’ve mastered:</p>
           </div>
 
           <ul className="skills-list">

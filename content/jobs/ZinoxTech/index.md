@@ -1,9 +1,9 @@
 ---
-date: '2017-12-21'
+date: '2023-06-05'
 title: 'Software Engineer'
 company: 'Zinox Technology'
-location: 'Cupertino, CA'
-range: 'June - November 2023'
+location: 'Lekki, NG'
+range: 'June - Nov 2023'
 url: 'https://wazobia.tech/'
 ---
 

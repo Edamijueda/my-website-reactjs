@@ -66,24 +66,25 @@ const Hero = () => {
     <>
       <p>
         I’m a software engineer specializing in building exceptional digital experiences. Currently,
-        I’m focused on building{' '}
-        <a
+        I’m focused on building Postcode-NG
+        {/* <a
           href="https://play.google.com/store/apps/details?id=org.collaction.collaction_app&pli=1"
           target="_blank"
           rel="noreferrer">
-          Collaction
-        </a>
-        , an app that connect people to solve collective action problems.
+          Postcode-NG
+        </a> */}
+        , a solution that makes it easy to look up Nigeria postcodes by their states, city,
+        town/village, street.
       </p>
     </>
   );
   const five = (
     <a
       className="email-link"
-      href="https://play.google.com/store/apps/details?id=org.collaction.collaction_app&pli=1"
+      href="https://wa.me/qr/64TXVGPQ5RFXL1 "
       target="_blank"
       rel="noreferrer">
-      Check out the app!
+      Request Demo!
     </a>
   );
 

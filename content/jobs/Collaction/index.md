@@ -2,8 +2,8 @@
 date: '2022-05-14'
 title: 'Software Engineer'
 company: 'Collaction'
-location: 'Boston, MA'
-range: 'May 2022 - Present'
+location: 'Amstadam, NL'
+range: 'May 2022 - Feb 2024'
 url: 'http://collaction.org/'
 ---
 
