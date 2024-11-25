@@ -65,16 +65,17 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        I’m a software engineer specializing in building exceptional digital experiences. Currently,
-        I’m focused on building Postcode-NG
+        A software engineer 👨🏽‍💻 who builds exceptional digital experiences. Currently, I’m focused on
+        building Postcode-NG
         {/* <a
           href="https://play.google.com/store/apps/details?id=org.collaction.collaction_app&pli=1"
           target="_blank"
           rel="noreferrer">
           Postcode-NG
         </a> */}
-        , a solution that makes it easy to look up Nigeria postcodes by their states, city,
-        town/village, street.
+        , a solution that makes it easy to look up Nigeria postcodes by states, city, town/village,
+        or street. In my spare time 👉🏽{' '}
+        <em>Practising to get better at building AI features into Apps</em>.
       </p>
     </>
   );

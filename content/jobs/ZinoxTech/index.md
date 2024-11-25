@@ -3,7 +3,7 @@ date: '2023-06-05'
 title: 'Software Engineer'
 company: 'Zinox Technology'
 location: 'Lekki, NG'
-range: 'June - Nov 2023'
+range: 'April - Sept 2023'
 url: 'https://wazobia.tech/'
 ---
 
