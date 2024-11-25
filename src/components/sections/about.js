@@ -148,13 +148,13 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Tobi and I enjoy creating things that live on the internet. My
-              interest is in building high perfomant mobile and web apps!
+              Hello! My name is Tobi. I enjoy creating things that live on the internet, building
+              high perfomant mobile and web apps!
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of building mobile apps for veriety
-              of clients on <a href="https://fiverr.com/">Fiverr</a> and{' '}
+              I’ve had the privilege of building mobile apps for veriety of clients on{' '}
+              <a href="https://fiverr.com/">Fiverr</a> and{' '}
               <a href="https://www.upwork.com/">Upwork</a>. Delivered custom softwares tailored to
               business needs during my time with{' '}
               <a href="https://wazobia.tech/">Zinox technology</a> and{' '}
