@@ -13,4 +13,4 @@ url: 'https://datafidelity.ng/'
 - Built services to encode, decode and transform GeoJSON data.
 - Unit/Integration test, error handling, secure-Auth & documentation.
 - Built Postcode lookup website by Implementing UI designs.
-- TOOLS: MySQL, SpringBatch, Spring-boot, Elasticsearch, Docker, Java, PHP, Vue, OpenApi, Bootstrap, SASS, JQuery.
+- TOOLS: MySQL, SpringBatch, SpringBoot, Elasticsearch, Docker, Java, PHP, Vue, OpenApi, Bootstrap, SASS, JQuery.
