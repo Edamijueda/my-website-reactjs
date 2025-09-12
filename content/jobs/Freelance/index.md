@@ -1,9 +1,9 @@
 ---
 date: '2019-03-01'
 title: 'Software Engineer'
-company: 'Upwork/Fiverr'
+company: 'Fiverr'
 location: 'Remotely'
-range: 'March 2019 - Feb 2022'
+range: 'Jan 2018 - Dec 2020'
 url: 'https://web.northeastern.edu/scout/'
 ---
 
