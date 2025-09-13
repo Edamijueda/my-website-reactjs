@@ -1,9 +1,9 @@
 ---
 date: '2024-03-01'
 title: 'Software Engineer'
-company: 'Data Fidelity'
+company: 'Data-Fi'
 location: 'Lagos, NG'
-range: 'August 2023 - Present'
+range: 'Aug 2023 - Present'
 url: 'https://datafidelity.ng/'
 ---
 

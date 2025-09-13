@@ -50,7 +50,7 @@ Yes, you can fork this repo. Please give me proper credit by linking back to [br
 3. Install dependencies
 
    ```sh
-   yarn
+   yar
    ```
 
 4. Start the development server

@@ -65,17 +65,17 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        A software engineer 👨🏽‍💻 who builds exceptional digital experiences. Currently, I’m focused on
-        building Postcode-NG
+        Software engineer 👨🏽‍💻 building exceptional digital experiences. Automate processes +
+        Integrate AI into Apps. Currently focused on Postcode-NG
         {/* <a
           href="https://play.google.com/store/apps/details?id=org.collaction.collaction_app&pli=1"
           target="_blank"
           rel="noreferrer">
           Postcode-NG
         </a> */}
-        , a solution that makes it easy to look up Nigeria postcodes by states, city, town/village,
-        or street. In my spare time 👉🏽{' '}
-        <em>Practising to get better at building AI features into Apps</em>.
+        , a solution for easy postcodes lookup by states, city or street. In my spare time 👉🏽{' '}
+        Contribute to <a href="https://github.com/devondragon/SpringUserFramework">OpenSource</a>.{' '}
+        {/* <em>Practising to get better at building AI features into Apps</em>. */}
       </p>
     </>
   );

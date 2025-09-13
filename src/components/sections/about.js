@@ -130,14 +130,15 @@ const About = () => {
     'Flutter',
     'Java',
     'Spring-boot',
-    'HTML/CSS/JS',
+    'ASP.Net',
     'Python',
     'SQL/No-SQL',
     'Node.js',
-    'React.js',
-    'Vue.js',
+    'Rust/Go',
+    'React/Next/Vue',
     'Kotlin',
-    'PHP laravel',
+    'PHP Laravel',
+    'MySQL/MongoDB',
   ];
 
   return (
@@ -148,19 +149,20 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Tobi. I enjoy creating things that live on the internet, building
-              high perfomant mobile and web apps!
+              I enjoy creating things that live on the internet. Implemented Configurable{' '}
+              <a href="https://github.com/devondragon/SpringUserFramework/issues/158">
+                Password Policy
+              </a>{' '}
+              to validate user's password!
             </p>
 
             <p>
-              I’ve had the privilege of building mobile apps for veriety of clients on{' '}
-              <a href="https://fiverr.com/">Fiverr</a> and{' '}
-              <a href="https://www.upwork.com/">Upwork</a>. Delivered custom softwares tailored to
-              business needs during my time with{' '}
+              I’ve had the privilege of Delivering custom softwares during my time with{' '}
+              {/* <a href="https://www.upwork.com/">Upwork</a>. Delivered custom softwares during my time with{' '} */}
+              <a href="https://www.digitalsanctuary.com">Digital Santuary</a>,{' '}
               <a href="https://wazobia.tech/">Zinox technology</a> and{' '}
-              <a href="https://www.collaction.org/">Collaction</a>. My main focus these days is
-              working with the team at <a href="https://datafidelity.ng/">DataFidelity</a>, building
-              POSTCODE-NG.
+              <a href="https://www.collaction.org/">Collaction</a>. Now working with the team at
+              DataFidelity, building POSTCODE-NG.
             </p>
             <p>Here are a few technologies I’ve mastered:</p>
           </div>
