@@ -1,5 +1,5 @@
 ---
-date: '3'
+date: '5'
 title: 'Logistics Aggregator'
 cover: './log_service_banner.webp'
 external: 'https://shorturl.at/gDRT3'

@@ -1,5 +1,5 @@
 ---
-date: '1'
+date: '2'
 title: 'MHG App'
 cover: './mhg_design_img.png'
 # github: 'https://github.com/bchiang7/halcyon-site'
