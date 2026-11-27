@@ -1,16 +1,9 @@
 const config = require('./src/config');
 
 module.exports = {
-  siteMetadata: {
-    title: 'Tobi Omorubore',
-    description:
-      "I'm software engineer; I enjoy creating things that live on the internet. Build high perfomant mobile and web apps.",
-    siteUrl: 'https://tobi-omorubore.dev', // No trailing slash allowed!
-    image: '/logo.png', //'/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@OmoruboreO',
-  },
+  // Defined in src/config.js so the SEO component can read the same values.
+  siteMetadata: config.siteMetadata,
   plugins: [
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import anime from 'animejs';
 import styled from 'styled-components';
@@ -75,6 +74,14 @@ const Loader = ({ finishLoading }) => {
       });
   };
 
+  // Was `<Helmet bodyAttributes={{ class: 'hidden' }} />`. The Head API cannot set
+  // body attributes before Gatsby 5.5. `body.hidden` locks scrolling while the
+  // full-screen loader is up, and the cleanup releases it when the loader unmounts.
+  useEffect(() => {
+    document.body.classList.add('hidden');
+    return () => document.body.classList.remove('hidden');
+  }, []);
+
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), 10);
     animate();
@@ -83,8 +90,6 @@ const Loader = ({ finishLoading }) => {
 
   return (
     <StyledLoader className="loader" isMounted={isMounted}>
-      <Helmet bodyAttributes={{ class: `hidden` }} />
-
       <div className="logo-wrapper">
         <IconLoader />
       </div>
