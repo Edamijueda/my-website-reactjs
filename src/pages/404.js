@@ -37,7 +37,7 @@ const NotFoundPage = ({ location }) => {
 
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [prefersReducedMotion]);
 
   // React 19 removed findDOMNode, which react-transition-group used without a nodeRef.
   const nodeRef = useRef(null);
