@@ -241,7 +241,7 @@ export const pageQuery = graphql`
   {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/projects/" } }
-      sort: { frontmatter: { date: DESC } }
+      sort: [{ frontmatter: { date: DESC } }, { frontmatter: { title: ASC } }]
     ) {
       edges {
         node {

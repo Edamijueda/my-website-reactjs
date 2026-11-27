@@ -169,7 +169,7 @@ const Jobs = () => {
     query {
       jobs: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/jobs/" } }
-        sort: { frontmatter: { date: DESC } }
+        sort: [{ frontmatter: { date: DESC } }, { frontmatter: { title: ASC } }]
       ) {
         edges {
           node {

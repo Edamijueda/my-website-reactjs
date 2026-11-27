@@ -16,7 +16,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     {
       postsRemark: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/posts/" } }
-        sort: { frontmatter: { date: DESC } }
+        sort: [{ frontmatter: { date: DESC } }, { frontmatter: { title: ASC } }]
         limit: 1000
       ) {
         edges {
