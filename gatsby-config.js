@@ -3,6 +3,14 @@ const config = require('./src/config');
 module.exports = {
   // Defined in src/config.js so the SEO component can read the same values.
   siteMetadata: config.siteMetadata,
+
+  /*
+   * Gatsby 5 removed the `legacy` default and now defaults to `always`. Set
+   * explicitly because it decides every generated URL. `always` is what the site
+   * already serves: Netlify 301s /pensieve/clickable-cards to the trailing-slash
+   * form today, so this points internal links straight at the canonical URL.
+   */
+  trailingSlash: 'always',
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
@@ -70,7 +78,6 @@ module.exports = {
               maxWidth: 700,
               linkImagesToOriginal: true,
               quality: 90,
-              tracedSVG: { color: config.colors.green },
             },
           },
           {
