@@ -65,12 +65,17 @@ Page content is Markdown under `content/`, read at build time by
 Each entry is an `index.md` with frontmatter. Adding one is a new folder, not a code
 change.
 
-`date` is what every section sorts on. In `content/featured/` it is not a real date at
-all — it is a position, `'1'` first — so **give each entry its own number**. Two
-entries sharing one leaves the tie to be broken by whatever order the filesystem hands
-Gatsby, which is not the same on every machine: the same content has built in three
-different orders across this repo's history. Past nine entries, pad the numbers
-(`'01'`, `'02'`), because the sort is on strings and `'10'` sorts before `'2'`.
+`date` is what every section sorts on, newest first — except `content/featured/`, where
+it is not a real date at all but a position, `'1'` first. Past nine featured entries, pad
+the numbers (`'01'`, `'02'`), because the sort is on strings and `'10'` sorts before
+`'2'`.
+
+**Every sort breaks ties on `title`, ascending.** Two entries may share a date — real
+posts do get published on the same day — and without a tiebreak the order would fall to
+whatever sequence the filesystem hands Gatsby, which differs between machines and Gatsby
+versions. The same content built in three different orders across this repo's history
+before that was fixed. So: entries sharing a date are ordered alphabetically by title,
+and if you need a specific order between them, the lever is the date, not the filename.
 
 ## Colour reference
 
