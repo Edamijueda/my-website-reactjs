@@ -50,6 +50,24 @@ Other scripts:
 A `pre-commit` hook runs Prettier and ESLint over staged files via `husky` and
 `lint-staged`.
 
+## A pinned dependency
+
+`package.json` carries a `resolutions` block holding **webpack at 5.98.0**. It is not a
+preference, and the build does not start without it.
+
+Gatsby 4 reaches into webpack's internals — `webpack/lib/Template` and three other deep
+paths — while asking for `webpack@^5.61.0`, a range wide enough to pick up anything in
+the 5.x line. webpack 5.112.0 reorganised `lib/`, moving `Template.js` down into
+`lib/template/`. Deep paths like that are not part of webpack's public API, so the move
+went out as an ordinary minor release; Gatsby 4 is end-of-life and was never adjusted.
+Without the pin, a fresh install resolves webpack 5.113.0 and `yarn build` dies before it
+reaches the first page: `Cannot find module 'webpack/lib/Template'`.
+
+5.98.0 is the version Gatsby 5 pins for itself (`webpack: ~5.98.0` — the maintainers
+narrowed the range to a tilde after exactly this class of breakage). Choosing the same
+one means the `resolutions` block can simply be deleted once this repo reaches Gatsby 5,
+and nothing about the installed tree will change.
+
 ## Where the content lives
 
 Page content is Markdown under `content/`, read at build time by
