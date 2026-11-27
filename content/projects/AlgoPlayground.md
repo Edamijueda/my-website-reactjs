@@ -8,7 +8,7 @@ tech:
   - Algorithm
   - Patterns
   - DS
-company: 'Apple'
+company: ''
 showInProjects: true
 ---
 
