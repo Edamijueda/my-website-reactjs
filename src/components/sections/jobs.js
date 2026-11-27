@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, createRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
@@ -193,6 +193,11 @@ const Jobs = () => {
   const [tabFocus, setTabFocus] = useState(null);
   const tabs = useRef([]);
   const revealContainer = useRef(null);
+
+  // react-transition-group falls back to findDOMNode without a nodeRef, and React 19
+  // removed it. One ref per tab panel.
+  const panelRefs = useRef([]);
+  const panelRef = i => (panelRefs.current[i] ||= createRef());
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -276,8 +281,14 @@ const Jobs = () => {
               const { title, url, company, range } = frontmatter;
 
               return (
-                <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
+                <CSSTransition
+                  key={i}
+                  nodeRef={panelRef(i)}
+                  in={activeTabId === i}
+                  timeout={250}
+                  classNames="fade">
                   <StyledTabPanel
+                    ref={panelRef(i)}
                     id={`panel-${i}`}
                     role="tabpanel"
                     tabIndex={activeTabId === i ? '0' : '-1'}

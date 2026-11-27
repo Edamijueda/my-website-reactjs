@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
@@ -39,8 +39,11 @@ const NotFoundPage = ({ location }) => {
     return () => clearTimeout(timeout);
   }, []);
 
+  // React 19 removed findDOMNode, which react-transition-group used without a nodeRef.
+  const nodeRef = useRef(null);
+
   const content = (
-    <StyledMainContainer className="fillHeight">
+    <StyledMainContainer ref={nodeRef} className="fillHeight">
       <StyledTitle>404</StyledTitle>
       <StyledSubtitle>Page Not Found</StyledSubtitle>
       <StyledHomeButton to="/">Go Home</StyledHomeButton>
@@ -54,7 +57,7 @@ const NotFoundPage = ({ location }) => {
       ) : (
         <TransitionGroup component={null}>
           {isMounted && (
-            <CSSTransition timeout={500} classNames="fadeup">
+            <CSSTransition nodeRef={nodeRef} timeout={500} classNames="fadeup">
               {content}
             </CSSTransition>
           )}

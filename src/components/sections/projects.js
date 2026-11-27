@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, createRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
@@ -194,6 +194,11 @@ const Projects = () => {
   const revealTitle = useRef(null);
   const revealArchiveLink = useRef(null);
   const revealProjects = useRef([]);
+
+  // react-transition-group falls back to findDOMNode without a nodeRef, and React 19
+  // removed it. These share the element with the existing scrollreveal refs below.
+  const nodeRefs = useRef([]);
+  const nodeRef = i => (nodeRefs.current[i] ||= createRef());
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -281,12 +286,16 @@ const Projects = () => {
               projectsToShow.map(({ node }, i) => (
                 <CSSTransition
                   key={i}
+                  nodeRef={nodeRef(i)}
                   classNames="fadeup"
                   timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
                   exit={false}>
                   <StyledProject
                     key={i}
-                    ref={el => (revealProjects.current[i] = el)}
+                    ref={el => {
+                      revealProjects.current[i] = el;
+                      nodeRef(i).current = el;
+                    }}
                     style={{
                       transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
                     }}>
