@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { navLinks } from '@config';
@@ -154,7 +154,7 @@ const StyledSidebar = styled.aside`
   }
 `;
 
-const Menu = () => {
+const Menu = forwardRef((props, ref) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -243,7 +243,7 @@ const Menu = () => {
   useOnClickOutside(wrapperRef, () => setMenuOpen(false));
 
   return (
-    <StyledMenu>
+    <StyledMenu ref={ref}>
       <div ref={wrapperRef}>
         <StyledHamburgerButton
           onClick={toggleMenu}
@@ -277,6 +277,10 @@ const Menu = () => {
       </div>
     </StyledMenu>
   );
-};
+});
+
+// forwardRef so Nav can hand react-transition-group a nodeRef. React 19 removed
+// findDOMNode, which is what it used to fall back on.
+Menu.displayName = 'Menu';
 
 export default Menu;

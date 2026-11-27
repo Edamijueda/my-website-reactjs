@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
@@ -36,6 +36,8 @@ const Side = ({ children, isHome, orientation }) => {
     return () => clearTimeout(timeout);
   }, []);
 
+  const nodeRef = useRef(null);
+
   return (
     <StyledSideElement orientation={orientation}>
       {prefersReducedMotion ? (
@@ -43,8 +45,14 @@ const Side = ({ children, isHome, orientation }) => {
       ) : (
         <TransitionGroup component={null}>
           {isMounted && (
-            <CSSTransition classNames={isHome ? 'fade' : ''} timeout={isHome ? loaderDelay : 0}>
-              {children}
+            <CSSTransition
+              nodeRef={nodeRef}
+              classNames={isHome ? 'fade' : ''}
+              timeout={isHome ? loaderDelay : 0}>
+              {/* Cloned rather than wrapped in a div: React 19 needs a nodeRef here,
+                  and both callers (Social, Email) pass a single styled element, which
+                  forwards refs. A wrapper element would change the layout. */}
+              {cloneElement(children, { ref: nodeRef })}
             </CSSTransition>
           )}
         </TransitionGroup>

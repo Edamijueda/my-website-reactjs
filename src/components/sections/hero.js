@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, createRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { navDelay, loaderDelay } from '@utils';
@@ -91,6 +91,11 @@ const Hero = () => {
 
   const items = [one, two, three, four, five];
 
+  // react-transition-group falls back to findDOMNode without a nodeRef, and React 19
+  // removed findDOMNode. One ref per animated item.
+  const nodeRefs = useRef([]);
+  const nodeRef = i => (nodeRefs.current[i] ||= createRef());
+
   return (
     <StyledHeroSection>
       {prefersReducedMotion ? (
@@ -103,8 +108,10 @@ const Hero = () => {
         <TransitionGroup component={null}>
           {isMounted &&
             items.map((item, i) => (
-              <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
-                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+              <CSSTransition key={i} nodeRef={nodeRef(i)} classNames="fadeup" timeout={loaderDelay}>
+                <div ref={nodeRef(i)} style={{ transitionDelay: `${i + 1}00ms` }}>
+                  {item}
+                </div>
               </CSSTransition>
             ))}
         </TransitionGroup>

@@ -8,7 +8,7 @@ import { siteMetadata, googleSiteVerification } from '@config';
 // collects head tags from a page or a createPage template. That is also why the
 // site metadata is imported instead of fetched with `useStaticQuery` — the Head
 // function has no access to React context until Gatsby 5.6.
-const Seo = ({ title, description, image, pathname }) => {
+const Seo = ({ title = null, description = null, image = null, pathname }) => {
   const {
     title: defaultTitle,
     description: defaultDescription,
@@ -60,10 +60,4 @@ Seo.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   pathname: PropTypes.string.isRequired,
-};
-
-Seo.defaultProps = {
-  title: null,
-  description: null,
-  image: null,
 };

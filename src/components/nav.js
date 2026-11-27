@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, createRef } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -181,8 +181,16 @@ const Nav = ({ isHome }) => {
   const fadeClass = isHome ? 'fade' : '';
   const fadeDownClass = isHome ? 'fadedown' : '';
 
+  // react-transition-group falls back to findDOMNode without a nodeRef, and React 19
+  // removed it. Refs are attached to elements that already exist — no wrapper nodes.
+  const logoRef = useRef(null);
+  const resumeRef = useRef(null);
+  const menuRef = useRef(null);
+  const linkRefs = useRef([]);
+  const linkRef = i => (linkRefs.current[i] ||= createRef());
+
   const Logo = (
-    <div className="logo" tabIndex="-1">
+    <div ref={logoRef} className="logo" tabIndex="-1">
       {isHome ? (
         <a href="/" aria-label="home">
           <div className="hex-container">
@@ -236,8 +244,8 @@ const Nav = ({ isHome }) => {
           <>
             <TransitionGroup component={null}>
               {isMounted && (
-                <CSSTransition classNames={fadeClass} timeout={timeout}>
-                  <>{Logo}</>
+                <CSSTransition nodeRef={logoRef} classNames={fadeClass} timeout={timeout}>
+                  {Logo}
                 </CSSTransition>
               )}
             </TransitionGroup>
@@ -248,8 +256,15 @@ const Nav = ({ isHome }) => {
                   {isMounted &&
                     navLinks &&
                     navLinks.map(({ url, name }, i) => (
-                      <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                        <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
+                      <CSSTransition
+                        key={i}
+                        nodeRef={linkRef(i)}
+                        classNames={fadeDownClass}
+                        timeout={timeout}>
+                        <li
+                          key={i}
+                          ref={linkRef(i)}
+                          style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
                           <Link to={url}>{name}</Link>
                         </li>
                       </CSSTransition>
@@ -259,8 +274,10 @@ const Nav = ({ isHome }) => {
 
               <TransitionGroup component={null}>
                 {isMounted && (
-                  <CSSTransition classNames={fadeDownClass} timeout={timeout}>
-                    <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
+                  <CSSTransition nodeRef={resumeRef} classNames={fadeDownClass} timeout={timeout}>
+                    <div
+                      ref={resumeRef}
+                      style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
                       {ResumeLink}
                     </div>
                   </CSSTransition>
@@ -270,8 +287,8 @@ const Nav = ({ isHome }) => {
 
             <TransitionGroup component={null}>
               {isMounted && (
-                <CSSTransition classNames={fadeClass} timeout={timeout}>
-                  <Menu />
+                <CSSTransition nodeRef={menuRef} classNames={fadeClass} timeout={timeout}>
+                  <Menu ref={menuRef} />
                 </CSSTransition>
               )}
             </TransitionGroup>
