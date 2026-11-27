@@ -31,7 +31,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+        filter: {
+          fileAbsolutePath: { regex: "/content/posts/" }
+          frontmatter: { draft: { ne: true } }
+        }
         sort: [{ frontmatter: { date: DESC } }, { frontmatter: { title: ASC } }]
         limit: 1000
       ) {
@@ -43,7 +46,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
-      tagsGroup: allMarkdownRemark(limit: 2000) {
+      tagsGroup: allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/content/posts/" }
+          frontmatter: { draft: { ne: true } }
+        }
+        limit: 2000
+      ) {
         group(field: { frontmatter: { tags: SELECT } }) {
           fieldValue
         }
