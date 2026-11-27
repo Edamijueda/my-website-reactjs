@@ -90,9 +90,12 @@ const PostTemplate = ({ data, location }) => {
 
 export default PostTemplate;
 
-export const Head = ({ data, location }) => (
-  <Seo title={data.markdownRemark.frontmatter.title} pathname={location.pathname} />
-);
+export const Head = ({ data, location }) => {
+  const { title, description } = data.markdownRemark.frontmatter;
+  return (
+    <Seo title={title} description={description} type="article" pathname={location.pathname} />
+  );
+};
 
 Head.propTypes = {
   data: PropTypes.object.isRequired,
