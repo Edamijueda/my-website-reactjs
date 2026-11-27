@@ -1,4 +1,20 @@
 module.exports = {
+  /*
+   * Mirrored into `siteMetadata` by gatsby-config.js, and read directly by the SEO
+   * component. It lives here rather than only in gatsby-config because the Head API
+   * cannot reach React context on Gatsby 4, so `useStaticQuery` is not available to it.
+   */
+  siteMetadata: {
+    title: 'Tobi Omorubore',
+    description:
+      "I'm software engineer; I enjoy creating things that live on the internet. Build high perfomant mobile and web apps.",
+    siteUrl: 'https://tobi-omorubore.dev', // No trailing slash allowed!
+    image: '/logo.png', //'/og.png', // Path to your image you placed in the 'static' folder
+    twitterUsername: '@OmoruboreO',
+  },
+
+  googleSiteVerification: '9wznNvGBzPUFMaw4Y4p14IVjl0XFqmY4bQpiRtmnJAM',
+
   email: 'tobbyzomo221@gmail.com', //brittany.chiang@gmail.com
 
   socialMedia: [
