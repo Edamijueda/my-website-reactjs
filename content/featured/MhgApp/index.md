@@ -1,7 +1,7 @@
 ---
 date: '2'
 title: 'MHG App'
-cover: './mhg_design_img.png'
+cover: './mhg-project.png'
 # github: 'https://github.com/bchiang7/halcyon-site'
 external: 'https://drive.google.com/file/d/1HmAul-3oYsAJtyYlIMiitlm4FA0flls9/view?usp=sharing'
 tech:
