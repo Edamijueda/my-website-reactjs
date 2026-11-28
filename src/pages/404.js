@@ -1,16 +1,42 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { navDelay } from '@utils';
+import styled, { keyframes } from 'styled-components';
 import { Layout, Seo } from '@components';
-import { usePrefersReducedMotion } from '@hooks';
+
+/*
+ * The same fade-up the rest of the site uses, as a keyframe rather than a
+ * CSSTransition. Values copied from `.fadeup-enter` in TransitionStyles.js.
+ */
+const fadeUp = keyframes`
+  from {
+    opacity: 0.01;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const StyledMainContainer = styled.main`
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
+
+  /*
+   * This used to be a CSSTransition held shut by a setTimeout of navDelay, which
+   * left the page blank for a second. navDelay is there to let the home page's
+   * loader finish; /404/ has no loader, so it was waiting on nothing.
+   *
+   * In CSS the animation starts on first paint, reduced motion is the absence of
+   * this rule instead of a different render, and the markup is now identical on the
+   * server and the client — so there is nothing to hydrate around either.
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${fadeUp} 300ms var(--easing) both;
+  }
 `;
+
 const StyledTitle = styled.h1`
   color: var(--green);
   font-family: var(--font-mono);
@@ -26,46 +52,15 @@ const StyledHomeButton = styled(Link)`
   margin-top: 40px;
 `;
 
-const NotFoundPage = ({ location }) => {
-  const [isMounted, setIsMounted] = useState(false);
-  const prefersReducedMotion = usePrefersReducedMotion();
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    const timeout = setTimeout(() => setIsMounted(true), navDelay);
-    return () => clearTimeout(timeout);
-  }, [prefersReducedMotion]);
-
-  // React 19 removed findDOMNode, which react-transition-group used without a nodeRef.
-  const nodeRef = useRef(null);
-
-  const content = (
-    <StyledMainContainer ref={nodeRef} className="fillHeight">
+const NotFoundPage = ({ location }) => (
+  <Layout location={location}>
+    <StyledMainContainer className="fillHeight">
       <StyledTitle>404</StyledTitle>
       <StyledSubtitle>Page Not Found</StyledSubtitle>
       <StyledHomeButton to="/">Go Home</StyledHomeButton>
     </StyledMainContainer>
-  );
-
-  return (
-    <Layout location={location}>
-      {prefersReducedMotion ? (
-        <>{content}</>
-      ) : (
-        <TransitionGroup component={null}>
-          {isMounted && (
-            <CSSTransition nodeRef={nodeRef} timeout={500} classNames="fadeup">
-              {content}
-            </CSSTransition>
-          )}
-        </TransitionGroup>
-      )}
-    </Layout>
-  );
-};
+  </Layout>
+);
 
 NotFoundPage.propTypes = {
   location: PropTypes.object.isRequired,
